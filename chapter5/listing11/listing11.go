@@ -12,14 +12,14 @@ type user struct {
 	email string
 }
 
-// notify implements a method with a value receiver.
+// notify implements a method with a value receiver.使用值接收者实现一个方法
 func (u user) notify() {
 	fmt.Printf("Sending User Email To %s<%s>\n",
 		u.name,
 		u.email)
 }
 
-// changeEmail implements a method with a pointer receiver.
+// changeEmail implements a method with a pointer receiver.使用指针接收者实现一个方法。
 func (u *user) changeEmail(email string) {
 	u.email = email
 }

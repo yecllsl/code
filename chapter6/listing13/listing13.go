@@ -33,16 +33,16 @@ func main() {
 	fmt.Println("Final Counter:", counter)
 }
 
-// incCounter increments the package level counter variable.
+// incCounter increments the package level counter variable.增加包里counter的值
 func incCounter(id int) {
 	// Schedule the call to Done to tell main we are done.
 	defer wg.Done()
 
 	for count := 0; count < 2; count++ {
-		// Safely Add One To Counter.
+		// Safely Add One To Counter.安全的对counter加1，原子操作
 		atomic.AddInt64(&counter, 1)
 
-		// Yield the thread and be placed back in queue.
+		// Yield the thread and be placed back in queue.当前goroutine从线程退出，并放回到队列。
 		runtime.Gosched()
 	}
 }

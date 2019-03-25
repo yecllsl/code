@@ -1,5 +1,5 @@
 // This sample program demonstrates how the goroutine scheduler
-// will time slice goroutines on a single thread.
+// will time slice goroutines on a single thread.展示goroutine调度器如何在单个线程上切分时间片的
 package main
 
 import (
@@ -19,19 +19,19 @@ func main() {
 	// Add a count of two, one for each goroutine.
 	wg.Add(2)
 
-	// Create two goroutines.
+	// Create two goroutines.创建两个goroutine
 	fmt.Println("Create Goroutines")
 	go printPrime("A")
 	go printPrime("B")
 
-	// Wait for the goroutines to finish.
+	// Wait for the goroutines to finish.等待goroutine结束
 	fmt.Println("Waiting To Finish")
 	wg.Wait()
 
 	fmt.Println("Terminating Program")
 }
 
-// printPrime displays prime numbers for the first 5000 numbers.
+// printPrime displays prime numbers for the first 5000 numbers.显示500以内的素数值
 func printPrime(prefix string) {
 	// Schedule the call to Done to tell main we are done.
 	defer wg.Done()
